@@ -1,5 +1,9 @@
 package dev.adamraichu.servercommands;
 
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import static net.minecraft.server.command.CommandManager.literal;
+import net.minecraft.text.*;
+
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +21,15 @@ public class ServerCommands implements ModInitializer {
     // However, some things (like resources) may still be uninitialized.
     // Proceed with mild caution.
 
-    LOGGER.info("Hello Fabric world!");
+    LOGGER.info("Server Commands mod is present.");
+
+    CommandRegistrationCallback.EVENT
+        .register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("foo")
+            .executes(context -> {
+              // For versions below 1.19, replace "Text.literal" with "new LiteralText".
+              context.getSource().sendMessage(Text.literal("Called /foo with no arguments"));
+
+              return 1;
+            })));
   }
 }
