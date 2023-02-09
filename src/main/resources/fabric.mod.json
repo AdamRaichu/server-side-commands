@@ -1,38 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "servercommands",
   "version": "${version}",
-
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Server Side Commands",
+  "description": "This is a mod which adds several useful commands on the server side.",
   "authors": [
-    "Me!"
+    "AdamRaichu"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/AdamRaichu/server-side-commands/",
+    "sources": "https://github.com/AdamRaichu/server-side-commands/"
   },
-
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
+  "license": "MIT",
+  "icon": "assets/servercommands/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "dev.adamraichu.servercommands.ServerCommands"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "servercommands.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric-api": "*",
     "minecraft": "~1.19.3",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
