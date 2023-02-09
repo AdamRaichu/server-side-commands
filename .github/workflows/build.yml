@@ -4,37 +4,52 @@
 # against bad commits.
 
 name: build
-on: [pull_request, push]
+on:
+  push:
+    paths:
+      - "version.txt"
 
 jobs:
   build:
-    strategy:
-      matrix:
-        # Use these Java versions
-        java: [
-          17,    # Current Java LTS & minimum supported by Minecraft
-        ]
-        # and run on both Linux and Windows
-        os: [ubuntu-22.04, windows-2022]
-    runs-on: ${{ matrix.os }}
+    if: contains(github.event.head_commit.message, '[build]') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repository
         uses: actions/checkout@v3
+      - name: import Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Inject version to gradle.properties
+        uses: actions/github-script@v6.3.3
+        with:
+          script: |
+            const fs = require("fs");
+            fs.readFile("gradle.properties", "utf8", (err, old) => {
+              if (err) throw err;
+              fs.readFile("version.txt", (err, v) => {
+                if (err) throw err;
+                fs.writeFile("gradle.properties", old.replace("$version", v), "utf8", (err) => {
+                  if (err) throw err;
+                  console.log("gradle.properties succesfully written");
+                  console.log(old.replace("$version", v));
+                  return;
+                })
+              })
+            })
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
-      - name: setup jdk ${{ matrix.java }}
+      - name: setup jdk 17
         uses: actions/setup-java@v3
         with:
-          java-version: ${{ matrix.java }}
-          distribution: 'microsoft'
+          java-version: 17
+          distribution: "microsoft"
       - name: make gradle wrapper executable
-        if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v3
         with:
-          name: Artifacts
+          name: Build Artifact
           path: build/libs/
