@@ -39,11 +39,11 @@ public class ServerCommands implements ModInitializer {
 
     CommandRegistrationCallback.EVENT
         .register((dispatcher, registryAccess, environment) -> dispatcher
-            .register(literal("feeeze")
+            .register(literal("freeze")
                 .requires(source -> source.hasPermissionLevel(3))
-                .then(argument("player", StringArgumentType.word()))
-                .then(argument("duration", NumberRangeArgumentType.intRange()))
-                .executes(ctx -> freeze(ctx.getSource(), StringArgumentType.getString(ctx, "player"), 30))));
+                .then(argument("player", StringArgumentType.word())
+                    .then(argument("duration", NumberRangeArgumentType.intRange())
+                        .executes(ctx -> freeze(ctx.getSource(), StringArgumentType.getString(ctx, "player"), 30))))));
   }
 
   private static int freeze(ServerCommandSource source, String playerName, Integer duration) {
