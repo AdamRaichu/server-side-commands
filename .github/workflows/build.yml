@@ -27,8 +27,8 @@ jobs:
         run: |
           git config user.name = "Github Actions"
           git config user.email = "actions@github.com"
-          git tag -a v${{ env.VERSION_TXT }} -m "Version ${{ env.VERSION_TXT }}"
-          git push origin v${{ env.VERSION_TXT }}
+          git tag -a v$VERSION_TXT -m "Version $VERSION_TXT"
+          git push origin v$VERSION_TXT
       - name: Inject version to gradle.properties
         run: node ./tools/build.js
       - name: validate gradle wrapper
