@@ -23,7 +23,6 @@ jobs:
       - name: Get version as env variable
         run: export VERSION_TXT=$(cat version.txt)
       - name: Create a tag
-        continue-on-error: ${{ inputs.continueOnTagErr }}
         run: |
           git config user.name = "Github Actions"
           git config user.email = "actions@github.com"
