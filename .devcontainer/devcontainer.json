@@ -8,7 +8,8 @@
       "imageVariant": "17",
       "installMaven": "true",
       "installGradle": "true"
-    }
+    },
+    "ghcr.io/devcontainers/features/node": {}
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],

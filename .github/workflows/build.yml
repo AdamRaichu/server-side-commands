@@ -20,23 +20,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Get version as env variable
+        run: export VERSION_TXT=$(cat version.txt)
+      - name: Create a tag
+        continue-on-error: ${{ inputs.continueOnTagErr }}
+        run: |
+          git config user.name = "Github Actions"
+          git config user.email = "actions@github.com"
+          git tag -a v${{ env.VERSION_TXT }} -m "Version ${{ env.VERSION_TXT }}"
+          git push origin v${{ env.VERSION_TXT }}
       - name: Inject version to gradle.properties
-        uses: actions/github-script@v6.3.3
-        with:
-          script: |
-            const fs = require("fs");
-            fs.readFile("gradle.properties", "utf8", (err, old) => {
-              if (err) throw err;
-              fs.readFile("version.txt", (err, v) => {
-                if (err) throw err;
-                fs.writeFile("gradle.properties", old.replace("$version", v), "utf8", (err) => {
-                  if (err) throw err;
-                  console.log("gradle.properties succesfully written");
-                  console.log(old.replace("$version", v));
-                  return;
-                })
-              })
-            })
+        run: node ./tools/build.js
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
       - name: setup jdk 17
