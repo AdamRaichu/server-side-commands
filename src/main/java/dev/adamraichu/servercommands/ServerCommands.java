@@ -40,7 +40,7 @@ public class ServerCommands implements ModInitializer {
     CommandRegistrationCallback.EVENT
         .register((dispatcher, registryAccess, environment) -> dispatcher
             .register(literal("freeze")
-                .requires(source -> source.hasPermissionLevel(3))
+                .requires(source -> source.hasPermissionLevel(2))
                 .then(argument("player", StringArgumentType.word())
                     .then(argument("duration", NumberRangeArgumentType.intRange())
                         .executes(ctx -> {
