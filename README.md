@@ -8,6 +8,8 @@ Right now the only one is `/freeze`, which traps a player in place.
 
 ### /freeze
 
+Requires permission level **2**.
+
 ```
 /freeze <player> <duration>
 ```
