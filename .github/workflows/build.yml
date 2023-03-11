@@ -22,7 +22,9 @@ jobs:
         with:
           node-version: 16
       - name: Get version as env variable
-        run: export VERSION_TXT=$(cat version.txt)
+        run: |
+          export VERSION_TXT=$(cat version.txt)
+          echo $VERSION_TXT
       - name: Create a tag
         run: |
           git config user.name = "Github Actions"
