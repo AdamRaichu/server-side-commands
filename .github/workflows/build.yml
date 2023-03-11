@@ -21,12 +21,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Get version as env variable
+      - name: Create a tag
         run: |
           export VERSION_TXT=$(cat version.txt)
           echo $VERSION_TXT
-      - name: Create a tag
-        run: |
           git config user.name = "Github Actions"
           git config user.email = "actions@github.com"
           git tag -a v$VERSION_TXT -m "Version $VERSION_TXT"
