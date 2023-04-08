@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Create a tag
+      - name: Create a tag and update gradle.properties
         run: |
           export VERSION_TXT=$(cat version.txt)
           echo $VERSION_TXT
@@ -29,8 +29,7 @@ jobs:
           git config user.email = "actions@github.com"
           git tag -a v$VERSION_TXT -m "Version $VERSION_TXT"
           git push origin v$VERSION_TXT
-      - name: Inject version to gradle.properties
-        run: node ./tools/build.js
+          node ./tools/build.js
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
       - name: setup jdk 17
