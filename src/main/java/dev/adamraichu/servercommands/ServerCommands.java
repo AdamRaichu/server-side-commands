@@ -10,7 +10,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.command.argument.NumberRangeArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 
@@ -42,7 +42,7 @@ public class ServerCommands implements ModInitializer {
             .register(literal("freeze")
                 .requires(source -> source.hasPermissionLevel(2))
                 .then(argument("player", StringArgumentType.word())
-                    .then(argument("duration", NumberRangeArgumentType.intRange())
+                    .then(argument("duration", IntegerArgumentType.integer(1))
                         .executes(ctx -> {
                           return freeze(ctx, ctx.getArgument("player", String.class),
                               ctx.getArgument("duration", Integer.class));
