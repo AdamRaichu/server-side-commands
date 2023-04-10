@@ -19,6 +19,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
 public class ServerCommands implements ModInitializer {
@@ -49,18 +50,18 @@ public class ServerCommands implements ModInitializer {
 
   private static int freeze(CommandContext<ServerCommandSource> context, String playerName, Integer duration)
       throws CommandSyntaxException {
-    var player = context.getSource().getServer().getPlayerManager().getPlayer(playerName);
+    ServerPlayerEntity player = context.getSource().getServer().getPlayerManager().getPlayer(playerName);
 
     if (Objects.isNull(player)) {
       context.getSource().sendError(Text.literal("Player does not exist"));
       return 0;
     }
 
-    var slowness = new StatusEffectInstance(StatusEffect.byRawId(2), duration, 6);
-    var mining_fatigue = new StatusEffectInstance(StatusEffect.byRawId(4), duration, 9);
-    var jump_boost = new StatusEffectInstance(StatusEffect.byRawId(8), duration, -5);
-    var blindness = new StatusEffectInstance(StatusEffect.byRawId(15), duration, 0);
-    var weakness = new StatusEffectInstance(StatusEffect.byRawId(18), duration, 19);
+    StatusEffectInstance slowness = new StatusEffectInstance(StatusEffect.byRawId(2), duration, 6);
+    StatusEffectInstance mining_fatigue = new StatusEffectInstance(StatusEffect.byRawId(4), duration, 9);
+    StatusEffectInstance jump_boost = new StatusEffectInstance(StatusEffect.byRawId(8), duration, -5);
+    StatusEffectInstance blindness = new StatusEffectInstance(StatusEffect.byRawId(15), duration, 0);
+    StatusEffectInstance weakness = new StatusEffectInstance(StatusEffect.byRawId(18), duration, 19);
 
     player.addStatusEffect(slowness);
     player.addStatusEffect(mining_fatigue);
