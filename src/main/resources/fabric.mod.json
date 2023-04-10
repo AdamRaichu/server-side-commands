@@ -12,7 +12,7 @@
     "sources": "https://github.com/AdamRaichu/server-side-commands/"
   },
   "license": "MIT",
-  "icon": "assets/servercommands/icon.png",
+  "icon": "assets/servercommands/logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [

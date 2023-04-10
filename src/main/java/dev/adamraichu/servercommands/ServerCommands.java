@@ -45,7 +45,7 @@ public class ServerCommands implements ModInitializer {
                     .then(argument("duration", IntegerArgumentType.integer(1))
                         .executes(ctx -> {
                           return freeze(ctx, ctx.getArgument("player", String.class),
-                              ctx.getArgument("duration", Integer.class));
+                              ctx.getArgument("duration", Integer.class) * 20);
                         })))));
   }
 
