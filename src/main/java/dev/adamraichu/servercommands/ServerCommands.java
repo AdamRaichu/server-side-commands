@@ -1,27 +1,25 @@
 package dev.adamraichu.servercommands;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import net.fabricmc.api.ModInitializer;
-
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.Text;
-
+import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
 import java.util.Objects;
 
-import static net.minecraft.server.command.CommandManager.argument;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
+import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.text.Text;
 
 public class ServerCommands implements ModInitializer {
   // This logger is used to write text to the console and the log file.
