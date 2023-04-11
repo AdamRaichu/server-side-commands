@@ -1,6 +1,5 @@
 package dev.adamraichu.servercommands.mixin;
 
-import dev.adamraichu.servercommands.ServerCommands;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
