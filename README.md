@@ -1,5 +1,17 @@
 # Server Side Commands Mod
 
+<!-- markdownlint-disable MD040 MD033 -->
+
+<div align="center">
+
+![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/55BTPGN3?label=Supported%20Versions&logo=Modrinth)
+![Supported Environment](https://img.shields.io/badge/environment-server-yellow)
+
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/55BTPGN3?color=brightgreen&label=Downloads&logo=Modrinth)
+![Modrinth Followers](https://img.shields.io/modrinth/followers/55BTPGN3?logo=Modrinth)
+
+</div>
+
 This server-side mod adds a couple commands for operators to use.
 
 ## Commands
@@ -9,8 +21,6 @@ Right now the only one is `/freeze`, which traps a player in place.
 ### /freeze
 
 Requires [permission level][permission-level] **2**.
-
-<!-- markdownlint-disable MD040 MD033 -->
 
 ```
 /freeze <player> <duration>
