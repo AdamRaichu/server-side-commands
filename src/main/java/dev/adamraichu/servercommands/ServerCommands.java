@@ -3,19 +3,15 @@ package dev.adamraichu.servercommands;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-import java.util.Objects;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.command.ServerCommandSource;
@@ -34,29 +30,21 @@ public class ServerCommands implements ModInitializer {
     // However, some things (like resources) may still be uninitialized.
     // Proceed with mild caution.
 
-    LOGGER.info("Server Commands mod is present.");
+    LOGGER.info("Server Side Commands mod is present.");
 
     CommandRegistrationCallback.EVENT
         .register((dispatcher, registryAccess, environment) -> dispatcher
             .register(literal("freeze")
                 .requires(source -> source.hasPermissionLevel(2))
-                .then(argument("player", StringArgumentType.word())
+                .then(argument("player", EntityArgumentType.player())
                     .then(argument("duration", IntegerArgumentType.integer(1))
                         .executes(ctx -> {
-                          return freeze(ctx, ctx.getArgument("player", String.class),
+                          return freezePlayer(ctx.getSource(), EntityArgumentType.getPlayer(ctx, "player"),
                               ctx.getArgument("duration", Integer.class) * 20);
                         })))));
   }
 
-  private static int freeze(CommandContext<ServerCommandSource> context, String playerName, Integer duration)
-      throws CommandSyntaxException {
-    ServerPlayerEntity player = context.getSource().getServer().getPlayerManager().getPlayer(playerName);
-
-    if (Objects.isNull(player)) {
-      context.getSource().sendError(Text.literal("Player does not exist"));
-      return 0;
-    }
-
+  private static int freezePlayer(ServerCommandSource source, ServerPlayerEntity player, Integer duration) {
     StatusEffectInstance slowness = new StatusEffectInstance(StatusEffect.byRawId(2), duration, 6);
     StatusEffectInstance mining_fatigue = new StatusEffectInstance(StatusEffect.byRawId(4), duration, 9);
     StatusEffectInstance jump_boost = new StatusEffectInstance(StatusEffect.byRawId(8), duration, -5);
@@ -69,7 +57,9 @@ public class ServerCommands implements ModInitializer {
     player.addStatusEffect(blindness);
     player.addStatusEffect(weakness);
 
-    player.sendMessage(Text.literal(context.getSource().getName() + " froze you."));
+    player.sendMessage(Text.literal(source.getName() + " froze you."));
+
+    LOGGER.info(source.getName() + " froze " + player.getName().toString() + ".");
 
     return Command.SINGLE_SUCCESS;
   }
