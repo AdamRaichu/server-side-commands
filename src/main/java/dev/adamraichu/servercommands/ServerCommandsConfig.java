@@ -17,7 +17,7 @@ public class ServerCommandsConfig {
 
   public Properties getConfig() {
     if (!configPath.exists()) {
-      ServerCommands.LOGGER.info("");
+      ServerCommands.LOGGER.info("No configuration found for servercommands. Writing...");
       writeConfig();
     }
 
@@ -29,8 +29,9 @@ public class ServerCommandsConfig {
 
       Properties prop = new Properties();
 
-      // set the properties value
+      // set the default value
       prop.setProperty("cmds.freeze.permissionLevel", "2");
+      prop.setProperty("cmds.freeze.logUsage", "true");
 
       // save properties to project root folder
       prop.store(output, null);

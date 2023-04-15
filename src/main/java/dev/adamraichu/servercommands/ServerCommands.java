@@ -29,17 +29,15 @@ public class ServerCommands implements ModInitializer {
   // That way, it's clear which mod wrote info, warnings, and errors.
   public static final Logger LOGGER = LoggerFactory.getLogger("servercommands");
 
-  private Properties CONFIG;
+  static Properties CONFIG = new ServerCommandsConfig(FabricLoader.getInstance().getConfigDir().resolve(
+      "servercommands.properties").toFile())
+      .getConfig();
 
   @Override
   public void onInitialize() {
     // This code runs as soon as Minecraft is in a mod-load-ready state.
     // However, some things (like resources) may still be uninitialized.
     // Proceed with mild caution.
-
-    CONFIG = new ServerCommandsConfig(FabricLoader.getInstance().getConfigDir().resolve(
-        "servercommands.properties").toFile())
-        .getConfig();
 
     LOGGER.info("Server Side Commands mod is present.");
 
@@ -78,7 +76,9 @@ public class ServerCommands implements ModInitializer {
 
     player.sendMessage(Text.literal(source.getName() + " froze you."));
 
-    LOGGER.info(source.getName() + " froze " + player.getName().getString() + ".");
+    if (Boolean.parseBoolean(CONFIG.getProperty("cmds.freeze.logUsage", "true"))) {
+      LOGGER.info(source.getName() + " froze " + player.getName().getString() + ".");
+    }
 
     return Command.SINGLE_SUCCESS;
   }
