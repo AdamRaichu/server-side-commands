@@ -30,6 +30,7 @@ public class ServerCommandsConfig {
       Properties prop = new Properties();
 
       // set the default value
+      prop.setProperty("CONFIG_FILE_VERSION", "1");
       prop.setProperty("cmds.freeze.permissionLevel", "2");
       prop.setProperty("cmds.freeze.logUsage", "true");
 
