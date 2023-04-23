@@ -20,7 +20,7 @@ Right now the only one is `/freeze`, which traps a player in place.
 
 ### /freeze
 
-Requires [permission level][permission-level] **2**.
+Requires [permission level][permission-level] **2** ([configurable][config]).
 
 ```
 /freeze <player> <duration>
@@ -34,6 +34,8 @@ Gives `player` the following effects for `duration` seconds.
 - Blindness I
 - Weakness XX
 
+Usage is logged to server console ([configurable][config]).
+
 ---
 
 _Logo is a combination of a command block and an image from flaticon.com. Flaticon attribution is below._
@@ -41,3 +43,4 @@ _Logo is a combination of a command block and an image from flaticon.com. Flatic
 _<a href="https://www.flaticon.com/free-icons/server" title="server icons">Server icons created by Pixel perfect - Flaticon</a>_
 
 [permission-level]: https://minecraft.fandom.com/wiki/Permission_level#Java_Edition_2
+[config]: https://github.com/AdamRaichu/server-side-commands/wiki
