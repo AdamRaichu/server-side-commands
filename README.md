@@ -16,25 +16,17 @@ This server-side mod adds a couple commands for operators to use.
 
 ## Commands
 
-Right now the only one is `/freeze`, which traps a player in place.
+The only currently available command is `/freeze`. 
 
-### /freeze
+Detailed information on commands and configuration can be found on [the wiki][wiki].
 
-Requires [permission level][permission-level] **2** ([configurable][config]).
+## My Modpack Policy
 
-```
-/freeze <player> <duration>
-```
+So my mod is posted under the MIT license, which meanse you can do a lot with it. However, if you include it in a modpack which is distributed on Modrinth, I would appreciate linking back here and/or inviting me to your project and giving me a small portion of the revenue from the project. This is completely volunteer work for me.
 
-Gives `player` the following effects for `duration` seconds.
+You may fork and edit this project as long as the title doesn't have my username, but again, I would appreciate attribution/revenue sharing.
 
-- Slowness VII
-- Mining Fatigue X
-- Jump Boost -V
-- Blindness I
-- Weakness XX
-
-Usage is logged to server console ([configurable][config]).
+You may not post unedited copies under any circumstances.
 
 ---
 
@@ -43,4 +35,4 @@ _Logo is a combination of a command block and an image from flaticon.com. Flatic
 _<a href="https://www.flaticon.com/free-icons/server" title="server icons">Server icons created by Pixel perfect - Flaticon</a>_
 
 [permission-level]: https://minecraft.fandom.com/wiki/Permission_level#Java_Edition_2
-[config]: https://github.com/AdamRaichu/server-side-commands/wiki
+[wiki]: https://github.com/AdamRaichu/server-side-commands/wiki
