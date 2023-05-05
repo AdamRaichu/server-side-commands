@@ -70,7 +70,7 @@ public class ServerCommandsConfig {
       old.setProperty("CONFIG_FILE_VERSION", CURRENT_VERSION);
       ServerCommands.LOGGER.info("Updating config file from mod version 1.1.0 to 1.2.0.");
     } else {
-      ServerCommands.LOGGER.error("updateConfig was called but version was not known.");
+      ServerCommands.LOGGER.error("`updateConfig` was called, but version was not known.");
       ServerCommands.LOGGER
           .error("Go to https://github.com/AdamRaichu/server-side-commands/wiki for help with this error.");
     }

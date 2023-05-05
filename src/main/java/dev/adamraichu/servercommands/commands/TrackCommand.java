@@ -90,7 +90,8 @@ public class TrackCommand {
     if (itemNbt.contains("adamraichu:TrackedPlayer")) {
       Entity entityToTrack = world.getEntityById(itemNbt.getInt("adamraichu:TrackedPlayer"));
       if (Objects.isNull(entityToTrack)) {
-        Text entityNotFoundText = Text.of("No entity could be found with the id on the compass.");
+        Text entityNotFoundText = Text
+            .of("No entity could be found with the id in the compass NBT. Try running /track again.");
         player.sendMessage(entityNotFoundText);
       }
       heldItem.setNbt(getUpdatedPosition(entityToTrack));

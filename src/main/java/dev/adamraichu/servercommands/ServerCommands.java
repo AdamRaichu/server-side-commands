@@ -32,7 +32,7 @@ public class ServerCommands implements ModInitializer {
     FreezeCommand.register();
     TrackCommand.register();
 
-    LOGGER.info("All commands have been registered (for `servercommands`)");
+    LOGGER.info("All commands have been registered for Server Side Commands");
   }
 
   public static Number toNumber(String string) throws ParseException {
