@@ -20,6 +20,22 @@ Currently available commands are `/freeze` and `/track`.
 
 Detailed information on commands and configuration can be found on [the wiki][wiki].
 
+## FAQ
+
+### The version title says for game version `1.19.4`, but Modrinth says `1.19-1.19.4`. What gives?
+
+When I am developing, I use the latest version of the fabric api available for the version I am working on (which is usually the latest stable version of Minecraft). While I don't expect there to be incompatability issues between the 1.19.4 and 1.19 api, there may be a change I am not aware of. Also, I generally like to encourage use of the latest version anyway.
+
+### Forge port?
+
+Maybe. The Forge documentation is not as thorough as I would like, but we'll see. I can probably figure it out by looking at other mods.
+
+If I do end up making a forge port it will lag behind the fabric version.
+
+### Will you support \<specific version\>?
+
+I would be happy to look at the API docs for a specific version to see if the code I have in place now works (with possible minor changes). Please create an issue to request a version.
+
 ## My Modpack Policy
 
 So my mod is posted under the MIT license, which meanse you can do a lot with it. However, if you include it in a modpack which is distributed on Modrinth, I would appreciate linking back here and/or inviting me to your project and giving me a small portion of the revenue from the project. This is completely volunteer work for me.
