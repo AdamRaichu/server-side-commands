@@ -93,6 +93,7 @@ public class TrackCommand {
         Text entityNotFoundText = Text
             .of("No entity could be found with the id in the compass NBT. Try running /track again.");
         player.sendMessage(entityNotFoundText);
+        ServerCommands.LOGGER.warn("Player " + player.getDisplayName().getString() + "has a bad tracking compass.");
       }
       heldItem.setNbt(getUpdatedPosition(entityToTrack));
     }

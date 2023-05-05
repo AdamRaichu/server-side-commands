@@ -31,7 +31,7 @@ public class ServerCommandsConfig {
     try (OutputStream output = new FileOutputStream(configPath, false)) {
 
       // save properties to project root folder
-      prop.store(output, "See https://github.com/AdamRaichu/server-side-commands/wiki/Configuration for help");
+      prop.store(output, "See https://github.com/AdamRaichu/server-side-commands/wiki/Configuration for more information");
 
       ServerCommands.LOGGER.info(prop.toString());
 
@@ -49,8 +49,6 @@ public class ServerCommandsConfig {
 
       // load a properties file
       prop.load(input);
-
-      ServerCommands.LOGGER.info("Current config file version: " + prop.getProperty("CONFIG_FILE_VERSION"));
 
       if (!(prop.getProperty("CONFIG_FILE_VERSION").equals(CURRENT_VERSION))) {
         prop = updateConfig(prop);
@@ -72,7 +70,8 @@ public class ServerCommandsConfig {
     } else {
       ServerCommands.LOGGER.error("`updateConfig` was called, but version was not known.");
       ServerCommands.LOGGER
-          .error("Go to https://github.com/AdamRaichu/server-side-commands/wiki for help with this error.");
+          .error("Go to the link below for help with this error.");
+      ServerCommands.LOGGER.error("https://github.com/AdamRaichu/server-side-commands/wiki/Errors#updateconfig-was-called-but-version-was-not-known");
     }
 
     writeConfig(old);
