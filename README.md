@@ -24,7 +24,7 @@ Detailed information on commands and configuration can be found on [the wiki][wi
 
 ### The version title says for game version `1.19.4`, but Modrinth says `1.19-1.19.4`. What gives?
 
-When I am developing, I use the latest version of the fabric api available for the version I am working on (which is usually the latest stable version of Minecraft). While I don't expect there to be incompatability issues between the 1.19.4 and 1.19 api, there may be a change I am not aware of. Also, I generally like to encourage use of the latest version anyway.
+When I am developing, I use the latest version of the fabric api available for the version I am working on (which is usually the latest stable version of Minecraft). While I don't expect there to be incompatibility issues between the 1.19.4 and 1.19 api, there may be a change I am not aware of. Also, I generally like to encourage use of the latest version anyway.
 
 ### Forge port?
 
