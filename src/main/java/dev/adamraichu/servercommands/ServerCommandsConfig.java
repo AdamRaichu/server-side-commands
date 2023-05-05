@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 public class ServerCommandsConfig {
+  private String CURRENT_VERSION = "1.1";
+
   public ServerCommandsConfig(File path) {
     configPath = path;
   }
@@ -18,26 +20,22 @@ public class ServerCommandsConfig {
   public Properties getConfig() {
     if (!configPath.exists()) {
       ServerCommands.LOGGER.info("No configuration found for servercommands. Writing...");
-      writeConfig();
+      writeConfig(getDefaultConfig());
+      ServerCommands.LOGGER.info("Configuration file written.");
     }
 
     return readConfig();
   }
 
-  private void writeConfig() {
-    try (OutputStream output = new FileOutputStream(configPath)) {
-
-      Properties prop = new Properties();
-
-      // set the default value
-      prop.setProperty("CONFIG_FILE_VERSION", "1");
-      prop.setProperty("cmds.freeze.permissionLevel", "2");
-      prop.setProperty("cmds.freeze.logUsage", "true");
+  private void writeConfig(Properties prop) {
+    try (OutputStream output = new FileOutputStream(configPath, false)) {
 
       // save properties to project root folder
-      prop.store(output, null);
+      prop.store(output, "See https://github.com/AdamRaichu/server-side-commands/wiki/Configuration for help");
 
-      System.out.println(prop);
+      ServerCommands.LOGGER.info(prop.toString());
+
+      output.close();
 
     } catch (IOException io) {
       io.printStackTrace();
@@ -52,11 +50,45 @@ public class ServerCommandsConfig {
       // load a properties file
       prop.load(input);
 
+      ServerCommands.LOGGER.info("Current config file version: " + prop.getProperty("CONFIG_FILE_VERSION"));
+
+      if (!(prop.getProperty("CONFIG_FILE_VERSION").equals(CURRENT_VERSION))) {
+        prop = updateConfig(prop);
+      }
+
       return prop;
 
     } catch (IOException ex) {
       ex.printStackTrace();
     }
     return new Properties();
+  }
+
+  private Properties updateConfig(Properties old) {
+    if (old.getProperty("CONFIG_FILE_VERSION").equals("1")) {
+      old.setProperty("cmds.track.permissionLevel", "2");
+      old.setProperty("CONFIG_FILE_VERSION", CURRENT_VERSION);
+      ServerCommands.LOGGER.info("Updating config file from mod version 1.1.0 to 1.2.0.");
+    } else {
+      ServerCommands.LOGGER.error("updateConfig was called but version was not known.");
+      ServerCommands.LOGGER
+          .error("Go to https://github.com/AdamRaichu/server-side-commands/wiki for help with this error.");
+    }
+
+    writeConfig(old);
+
+    return old;
+  }
+
+  private Properties getDefaultConfig() {
+    Properties prop = new Properties();
+
+    // set the default value
+    prop.setProperty("CONFIG_FILE_VERSION", CURRENT_VERSION);
+    prop.setProperty("cmds.freeze.permissionLevel", "2");
+    prop.setProperty("cmds.freeze.logUsage", "true");
+    prop.setProperty("cmds.track.permissionLevel", "2");
+
+    return prop;
   }
 }

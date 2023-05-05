@@ -5,6 +5,12 @@ This file contains release notes for all versions `1.0.0___1.19.3` and following
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project _(kind of)_ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.2.0
+
+New command `/track`. See the [wiki][wiki] for more information.
+
+Some internal changes in file placement.
+
 ## 1.1.0\_\_\_1.19.3-1.19.4
 
 New Features:

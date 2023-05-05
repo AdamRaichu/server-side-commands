@@ -1,0 +1,11 @@
+// PsuedoCode
+
+
+NbtCompound compassMain = new NbtCompound();
+compassMain.putString("LodestoneDimension", "<dimension>");
+
+NbtCompound compassPos = new NbtCompound();
+compassPos.putInt("X", <entityposX>);
+// etc.
+
+compassMain.put("LodestonePos", compassPos);
