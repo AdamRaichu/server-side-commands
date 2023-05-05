@@ -38,7 +38,7 @@ I would be happy to look at the API docs for a specific version to see if the co
 
 ## My Modpack Policy
 
-So my mod is posted under the MIT license, which meanse you can do a lot with it. However, if you include it in a modpack which is distributed on Modrinth, I would appreciate linking back here and/or inviting me to your project and giving me a small portion of the revenue from the project. This is completely volunteer work for me.
+So my mod is posted under the MIT license, which means you can do a lot with it. However, if you include it in a modpack which is distributed on Modrinth, I would appreciate linking back here and/or inviting me to your project and giving me a small portion of the revenue from the project. This is completely volunteer work for me.
 
 You may fork and edit this project as long as the title doesn't have my username, but again, I would appreciate attribution/revenue sharing.
 
