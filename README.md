@@ -16,7 +16,7 @@ This server-side mod adds a couple commands for operators to use.
 
 ## Commands
 
-The only currently available command is `/freeze`. 
+Currently available commands are `/freeze` and `/track`.
 
 Detailed information on commands and configuration can be found on [the wiki][wiki].
 
@@ -26,7 +26,7 @@ So my mod is posted under the MIT license, which meanse you can do a lot with it
 
 You may fork and edit this project as long as the title doesn't have my username, but again, I would appreciate attribution/revenue sharing.
 
-You may not post unedited copies under any circumstances.
+Please do not post unedited copies under any circumstances.
 
 ---
 
