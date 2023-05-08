@@ -27,8 +27,8 @@ jobs:
           echo $VERSION_TXT
           git config user.name = "Github Actions"
           git config user.email = "actions@github.com"
-          git tag -a v$VERSION_TXT -m "Version $VERSION_TXT"
-          git push origin v$VERSION_TXT
+          git tag -a v$VERSION_TXT-fabric -m "Version $VERSION_TXT (fabric)"
+          git push origin v$VERSION_TXT-fabric
           node ./tools/build.js
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
@@ -44,5 +44,5 @@ jobs:
       - name: capture build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Build Artifact
+          name: Mod Files (Fabric)
           path: build/libs/
