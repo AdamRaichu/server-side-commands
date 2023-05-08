@@ -40,8 +40,6 @@ public class FreezeCommand {
   }
 
   private static int freezePlayer(CommandSourceStack source, ServerPlayer player, Integer duration) {
-    LOGGER.info(
-        source.getTextName() + " froze " + player.getName().getString() + " for " + duration.toString() + "seconds.");
     MobEffectInstance slowness = new MobEffectInstance(MobEffect.byId(2), duration, 6);
     MobEffectInstance mining_fatigue = new MobEffectInstance(MobEffect.byId(4), duration, 9);
     MobEffectInstance jump_boost = new MobEffectInstance(MobEffect.byId(8), duration, -5);
@@ -56,8 +54,8 @@ public class FreezeCommand {
 
     player.sendSystemMessage(Component.literal(source.getTextName() + " froze you."));
 
-    if (Boolean.parseBoolean(CONFIG.getProperty("cmds.freeze.logUsage", "true"))) {
-      LOGGER.info(source.getTextName() + " froze " + player.getName().getString() + ".");
+    if (Boolean.parseBoolean(CONFIG.getProperty("cmds.freeze.logUsage", "true"))) {\
+      LOGGER.info(source.getTextName() + " froze " + player.getName().getString() + " for " + duration.toString() + " seconds.");
     }
 
     return Command.SINGLE_SUCCESS;
