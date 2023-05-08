@@ -30,7 +30,7 @@ When I am developing, I use the latest version of the fabric api available for t
 
 WIP. You can check out the `forge-main` branch on GitHub to see progress if you want.
 
-**Status (5/7/23)**: Freeze command is working, but no versions have been released. I also have not yet automated the build process, but I don't expect that to take long.
+**Status (5/8/23)**: Freeze command is working, beta version has been released. No track command yet.
 
 Development will be focused on Fabric first, so Forge versions will probably lag behind the Fabric version.
 
