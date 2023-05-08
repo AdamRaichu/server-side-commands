@@ -54,7 +54,7 @@ public class FreezeCommand {
 
     player.sendSystemMessage(Component.literal(source.getTextName() + " froze you."));
 
-    if (Boolean.parseBoolean(CONFIG.getProperty("cmds.freeze.logUsage", "true"))) {\
+    if (Boolean.parseBoolean(CONFIG.getProperty("cmds.freeze.logUsage", "true"))) {
       LOGGER.info(source.getTextName() + " froze " + player.getName().getString() + " for " + duration.toString() + " seconds.");
     }
 
