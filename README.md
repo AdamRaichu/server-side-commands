@@ -20,6 +20,16 @@ Currently available commands are `/freeze` and `/track`.
 
 Detailed information on commands and configuration can be found on [the wiki][wiki].
 
+## A Note About Modloaders and Sides
+
+The requirements/capabilities for this mod depend on the modloader.
+
+|  | Fabric | Forge |
+| ---: | :---: | :---: |
+| Supports Singleplayer: | Unknown | Yes |
+| Supports Server Install: | Yes | Yes |
+| Dependencies: | Fabric API | None |
+
 ## FAQ
 
 ### The version title says for game version `1.19.4`, but Modrinth says `1.19-1.19.4`. What gives?
