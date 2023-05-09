@@ -1,0 +1,11 @@
+{
+  "homepage": "https://modrinth.com/mod/server-side-commands",
+  "1.19.4": {
+    "1.19.4-0.1.0-beta1": "First Forge release. Working /track command and configuration.\n\nKnown bugs:\n- Config option `cmds.freeze.logUsage` does not work as intended.\n- Minor typos",
+    "1.19.4-0.1.2-beta2": "Fix minor typo.\n\nMake config option `cmds.freeze.logUsage` work as intended."
+  },
+  "promos": {
+    "1.19.4-latest": "1.19.4-0.1.2-beta2",
+    "1.19.4-recommended": "1.19.4-0.1.2-beta2"
+  }
+}
