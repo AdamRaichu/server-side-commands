@@ -27,7 +27,7 @@ The requirements/capabilities for this mod depend on the modloader.
 
 |  | Fabric | Forge |
 | ---: | :---: | :---: |
-| Supports Singleplayer: | Unknown | Yes |
+| Supports Singleplayer: | Yes | Yes |
 | Supports Server Install: | Yes | Yes |
 | Dependencies: | Fabric API | None |
 
