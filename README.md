@@ -5,10 +5,11 @@
 <div align="center">
 
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/55BTPGN3?label=Supported%20Versions&logo=Modrinth)
-![Supported Environment](https://img.shields.io/badge/environment-server-yellow)
-
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/55BTPGN3?color=brightgreen&label=Downloads&logo=Modrinth)
 ![Modrinth Followers](https://img.shields.io/modrinth/followers/55BTPGN3?logo=Modrinth)
+
+![Supported Environment](https://img.shields.io/badge/environment-logical%20server-yellow)
+[![What is the logical server?](https://img.shields.io/badge/What%20is%20the%20logical%20server%3F-(Click%20me)-darkblue)](https://docs.minecraftforge.net/en/latest/concepts/sides/#different-kinds-of-sides)
 
 </div>
 
