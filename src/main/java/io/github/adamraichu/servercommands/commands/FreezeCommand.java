@@ -1,4 +1,4 @@
-package dev.adamraichu.servercommands.commands;
+package io.github.adamraichu.servercommands.commands;
 
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
@@ -8,7 +8,7 @@ import java.text.ParseException;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 
-import dev.adamraichu.servercommands.ServerCommands;
+import io.github.adamraichu.servercommands.ServerCommands;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.effect.StatusEffect;

@@ -1,4 +1,4 @@
-package dev.adamraichu.servercommands;
+package io.github.adamraichu.servercommands;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -7,7 +7,7 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.adamraichu.servercommands.commands.*;
+import io.github.adamraichu.servercommands.commands.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 

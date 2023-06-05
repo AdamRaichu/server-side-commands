@@ -1,4 +1,4 @@
-package dev.adamraichu.servercommands;
+package io.github.adamraichu.servercommands;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,7 +31,8 @@ public class ServerCommandsConfig {
     try (OutputStream output = new FileOutputStream(configPath, false)) {
 
       // save properties to project root folder
-      prop.store(output, "See https://github.com/AdamRaichu/server-side-commands/wiki/Configuration for more information");
+      prop.store(output,
+          "See https://github.com/AdamRaichu/server-side-commands/wiki/Configuration for more information");
 
       ServerCommands.LOGGER.info(prop.toString());
 
@@ -71,7 +72,8 @@ public class ServerCommandsConfig {
       ServerCommands.LOGGER.error("`updateConfig` was called, but version was not known.");
       ServerCommands.LOGGER
           .error("Go to the link below for help with this error.");
-      ServerCommands.LOGGER.error("https://github.com/AdamRaichu/server-side-commands/wiki/Errors#updateconfig-was-called-but-version-was-not-known");
+      ServerCommands.LOGGER.error(
+          "https://github.com/AdamRaichu/server-side-commands/wiki/Errors#updateconfig-was-called-but-version-was-not-known");
     }
 
     writeConfig(old);

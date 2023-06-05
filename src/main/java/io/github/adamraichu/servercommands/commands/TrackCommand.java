@@ -1,4 +1,4 @@
-package dev.adamraichu.servercommands.commands;
+package io.github.adamraichu.servercommands.commands;
 
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
@@ -10,7 +10,7 @@ import java.util.UUID;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
-import dev.adamraichu.servercommands.ServerCommands;
+import io.github.adamraichu.servercommands.ServerCommands;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.command.argument.EntityArgumentType;
