@@ -5,6 +5,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 import java.text.ParseException;
 import java.util.Objects;
+import java.util.UUID;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -20,8 +21,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+// import net.minecraft.nbt.NbtList;
+// import net.minecraft.nbt.NbtString;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -85,15 +89,17 @@ public class TrackCommand {
       return new TypedActionResult<ItemStack>(ActionResult.PASS, heldItem);
     }
 
+    ServerWorld sWorld = player.getServer().getOverworld();
+
     NbtCompound itemNbt = heldItem.getNbt();
 
     if (itemNbt.contains("adamraichu:TrackedPlayer")) {
-      Entity entityToTrack = world.getEntityById(itemNbt.getInt("adamraichu:TrackedPlayer"));
+      Entity entityToTrack = sWorld.getEntity(UUID.fromString(itemNbt.getString("adamraichu:TrackedPlayer")));
       if (Objects.isNull(entityToTrack)) {
         Text entityNotFoundText = Text
-            .of("No entity could be found with the id in the compass NBT. Try running /track again.");
+            .of("No entity could be found with the UUID in the compass NBT. Try running /track again.");
         player.sendMessage(entityNotFoundText);
-        ServerCommands.LOGGER.warn("Player " + player.getDisplayName().getString() + "has a bad tracking compass.");
+        ServerCommands.LOGGER.warn("Player " + player.getDisplayName().getString() + " has a bad tracking compass.");
       }
       heldItem.setNbt(getUpdatedPosition(entityToTrack));
     }
@@ -111,9 +117,17 @@ public class TrackCommand {
     compassPos.putInt("Z", (int) Math.round(target.getZ()));
 
     // Add tracking id
-    compassData.putInt("adamraichu:TrackedPlayer", target.getId());
+    compassData.putString("adamraichu:TrackedPlayer", target.getUuidAsString());
 
     // TODO: Add name and tracking data to lore
+    /*
+     * NbtCompound displayData = new NbtCompound();
+     * NbtList loreList = new NbtList();
+     * loreList.add(NbtString.of("\"Last location:\""));
+     * loreList.add(NbtString.of("\"X Y Z\""));
+     * displayData.put("Lore", loreList);
+     * displayData.putString("Name", "\"Tracking [Name]\"");
+     */
 
     compassData.put("LodestonePos", compassPos);
     compassData.putByte("LodestoneTracked", falsey);

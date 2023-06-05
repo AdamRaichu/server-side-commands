@@ -8,12 +8,13 @@
     "AdamRaichu"
   ],
   "contact": {
-    "homepage": "https://github.com/AdamRaichu/server-side-commands/",
-    "sources": "https://github.com/AdamRaichu/server-side-commands/"
+    "homepage": "https://modrinth.com/mod/server-side-commands",
+    "sources": "https://github.com/AdamRaichu/server-side-commands/",
+    "issues": "https://github.com/AdamRaichu/server-side-commands/issues/"
   },
   "license": "MIT",
   "icon": "assets/servercommands/logo.png",
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
     "main": [
       "dev.adamraichu.servercommands.ServerCommands"
@@ -25,7 +26,7 @@
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric-api": "*",
-    "minecraft": "~1.19.3",
+    "minecraft": "~1.19.4",
     "java": ">=17"
   }
 }
