@@ -1,4 +1,4 @@
-package dev.adamraichu.servercommands;
+package io.github.adamraichu.servercommands;
 
 import java.io.File;
 import java.io.FileInputStream;

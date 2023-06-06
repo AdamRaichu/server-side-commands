@@ -1,4 +1,4 @@
-package dev.adamraichu.servercommands;
+package io.github.adamraichu.servercommands;
 
 import java.io.File;
 import java.text.NumberFormat;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import dev.adamraichu.servercommands.commands.FreezeCommand;
+import io.github.adamraichu.servercommands.commands.FreezeCommand;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;

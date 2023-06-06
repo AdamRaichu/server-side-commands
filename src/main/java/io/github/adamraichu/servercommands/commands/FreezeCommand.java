@@ -1,8 +1,8 @@
-package dev.adamraichu.servercommands.commands;
+package io.github.adamraichu.servercommands.commands;
 
-import static dev.adamraichu.servercommands.ServerCommandsForge.CONFIG;
-import static dev.adamraichu.servercommands.ServerCommandsForge.LOGGER;
-import static dev.adamraichu.servercommands.ServerCommandsForge.toNumber;
+import static io.github.adamraichu.servercommands.ServerCommandsForge.CONFIG;
+import static io.github.adamraichu.servercommands.ServerCommandsForge.LOGGER;
+import static io.github.adamraichu.servercommands.ServerCommandsForge.toNumber;
 import static net.minecraft.commands.Commands.argument;
 import static net.minecraft.commands.Commands.literal;
 
@@ -55,7 +55,8 @@ public class FreezeCommand {
     player.sendSystemMessage(Component.literal(source.getTextName() + " froze you."));
 
     if (Boolean.parseBoolean(CONFIG.getProperty("cmds.freeze.logUsage", "true"))) {
-      LOGGER.info(source.getTextName() + " froze " + player.getName().getString() + " for " + duration.toString() + " seconds.");
+      LOGGER.info(source.getTextName() + " froze " + player.getName().getString() + " for " + duration.toString()
+          + " seconds.");
     }
 
     return Command.SINGLE_SUCCESS;
