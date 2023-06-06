@@ -63,7 +63,7 @@ public class TrackCommand {
 
     ServerCommands.LOGGER
         .info(
-            "`/track " + target.getDisplayName().getString() + " `was called by "
+            "`/track " + target.getDisplayName().getString() + "` was called by "
                 + source.getDisplayName().getString());
 
     // Get player inventory
