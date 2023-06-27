@@ -1,8 +1,8 @@
-package io.github.adamraichu.servercommands.commands;
+package io.github.adamraichu.servercommands.forge.commands;
 
-import static io.github.adamraichu.servercommands.ServerCommandsForge.CONFIG;
-import static io.github.adamraichu.servercommands.ServerCommandsForge.LOGGER;
-import static io.github.adamraichu.servercommands.ServerCommandsForge.toNumber;
+import static io.github.adamraichu.servercommands.forge.ServerCommandsForge.CONFIG;
+import static io.github.adamraichu.servercommands.forge.ServerCommandsForge.LOGGER;
+import static io.github.adamraichu.servercommands.forge.ServerCommandsForge.toNumber;
 import static net.minecraft.commands.Commands.argument;
 import static net.minecraft.commands.Commands.literal;
 

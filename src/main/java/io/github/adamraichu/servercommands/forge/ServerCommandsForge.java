@@ -1,4 +1,4 @@
-package io.github.adamraichu.servercommands;
+package io.github.adamraichu.servercommands.forge;
 
 import java.io.File;
 import java.text.NumberFormat;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import io.github.adamraichu.servercommands.commands.FreezeCommand;
+import io.github.adamraichu.servercommands.forge.commands.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +35,7 @@ public class ServerCommandsForge {
 
     // Register freeze command
     MinecraftForge.EVENT_BUS.register(FreezeCommand.class);
+    MinecraftForge.EVENT_BUS.register(TrackCommand.class);
   }
 
   private void commonSetup(final FMLCommonSetupEvent event) {
